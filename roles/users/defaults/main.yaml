@@ -1,0 +1,9 @@
+users:
+  - username: Michael
+    state: present
+  
+  - username: John
+    state: absent
+  
+  - username: Superman
+    state: present

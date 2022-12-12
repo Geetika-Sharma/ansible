@@ -1,0 +1,6 @@
+# This file uses roles to create multiple users
+- name: Create users
+  become: True
+  hosts: host1
+  roles:
+    - users
