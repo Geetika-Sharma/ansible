@@ -179,6 +179,18 @@ e.g file_path: "{{ variable }}"
 ansible-playbook -i inventory/inventory.ini playbooks/install_nginx.yaml -v
 ```
 
+## Ad-hoc commands
+An Ansible ad hoc command uses the /usr/bin/ansible command-line tool to automate a single task on one or more managed nodes
+
+### Create user with ad-hoc command
+ansible -i inventory/inventory.ini --become --become-user root -m user -a "name=ansibleuser state=present" host1
+
+### Install Nginx with ad-hoc command
+ansible -i inventory/inventory.ini --become --become-user root -m package -a "name=nginx state=present" host1
+
+## Ansible Roles
+Ansible roles allow you to develop reusable automation components by grouping and encapsulating related automation artifacts, like configuration files, templates, tasks, and handlers
+
 # References
 Pythoholic - https://www.youtube.com/watch?v=MNGfPn0Yvs8
 Michael Crilly - https://www.youtube.com/playlist?list=PL0yQYCnvTmOv7ctKBb66YQx11NrQPWSrx
