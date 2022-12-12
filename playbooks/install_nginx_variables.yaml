@@ -1,0 +1,37 @@
+# Install Nginx on Ubuntu
+---
+- name: Install Nginx and enable it
+  hosts: host1
+  become: True
+  vars:
+    base_path: /home/ubuntu/
+  tasks:
+  - name: Install Nginx
+    apt:
+      name: nginx
+      state: present
+
+  - name: Start the Nginx Service
+    service:
+      name: nginx
+      state: started
+
+  - name: Enable the Nginx Service
+    service:
+      name: nginx
+      enabled: True
+
+  - name: Get Nginx installed version
+    command: nginx -v
+    register: nginx_version
+
+  - name: Get status of Nginx Service
+    command: systemctl status nginx
+
+  - name: Print the latest version
+    debug:
+      msg: "The current version of Nginx is {{ nginx_version.stderr_lines[0] }}"
+  - name: Copy files from base machine to remote machine
+    copy:
+      src: ../dummy_files/sample.txt
+      dest: "{{ base_path }}"
