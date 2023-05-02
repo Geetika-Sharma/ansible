@@ -134,7 +134,7 @@ e.g file_path: "{{ variable }}"
 ### Expect Module
 ![Alt text](images/Expect_Module_Example.png?raw=true "Expect Module Example")
 
-### Expect Module
+### PSExec Module
 ![Alt text](images/PSExec_Module_Example.png?raw=true "PSExec Module Example")
 
 ### RAW Module
